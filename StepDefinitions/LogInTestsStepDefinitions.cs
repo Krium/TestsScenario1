@@ -15,7 +15,7 @@ namespace TestsScenario1.StepDefinitions
         LogInPage logInPage;
         ProfilePage profilePage;
        
-        [Before]
+        [BeforeScenario]
         public void SetUp()
         {
             driver = new ChromeDriver();
@@ -23,11 +23,11 @@ namespace TestsScenario1.StepDefinitions
         }
 
 
-        [Given(@"Not-registered user open '(.*)' page")]
+        [Given(@"Not-registered user opens '(.*)' page")]
         public void UserOpenPage(string url)
         {
             logInPage = new LogInPage(driver);
-            logInPage.openPage(url);
+            logInPage.OpenPage(url);
         }
 
         [Then(@"User checks that he is presented with a login screen on '(.*)' page")]
@@ -65,7 +65,7 @@ namespace TestsScenario1.StepDefinitions
             Assert.That(profilePage.GetTextFromGreetingMessage().Contains(keyword));
         }
 
-        [After]
+        [AfterScenario]
         public void TearDown()
         {
             driver.Quit();

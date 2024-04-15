@@ -12,11 +12,11 @@ namespace TestsScenario1.PageObject
     internal class ProfilePage
     {
         protected IWebDriver _driver;
-        protected WebDriverWait wait;
+        protected WebDriverWait _wait;
         public ProfilePage(IWebDriver driver)
         {
             _driver = driver;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             PageFactory.InitElements(driver, this);
         }
 

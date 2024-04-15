@@ -5,12 +5,12 @@ so that only genuine customers can access their tracking data.
 
 	@testid-1
 Scenario: Checks that for not-registered users displays login screen when they want to get access to website  
-	Given Not-registered user open 'http://traking.com' page
+	Given Not-registered user opens 'http://traking.com' page
 	Then User checks that he is presented with a login screen on 'http://traking.com/login' page
 	
 	@testid-2
 Scenario: Checks that user can logged in to the website with valid credentials
-	Given Not-registered user open 'http://traking.com' page
+	Given Not-registered user opens 'http://traking.com' page
 	And User checks that he is presented with a login screen on 'http://traking.com/login' page
 	When User enter a valid username 'userfortrack'
 	And User enter a valid password 'pasTrack12'

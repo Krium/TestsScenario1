@@ -15,11 +15,11 @@ namespace TestsScenario1.PageObject
     internal class LogInPage
     {
         protected IWebDriver _driver;
-        protected WebDriverWait wait;
+        protected WebDriverWait _wait;
         public LogInPage (IWebDriver driver) 
         {
             _driver = driver;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             PageFactory.InitElements(driver, this);
         }
 
@@ -36,18 +36,18 @@ namespace TestsScenario1.PageObject
 
         public void SetValueToPasswordInput(string value)
         {
-            wait.Until(d => passwordInput.Displayed);
+            _wait.Until(d => passwordInput.Displayed);
             passwordInput.Clear();
             passwordInput.SendKeys(value);           
         }
         public void SetValueToUserNameInput(string value)
         {
-            wait.Until(d => userNameInput.Displayed);
+            _wait.Until(d => userNameInput.Displayed);
             userNameInput.Clear();
             userNameInput.SendKeys(value);            
         }
 
-        public void openPage(string url)
+        public void OpenPage(string url)
         {
             _driver.Navigate().GoToUrl(url);
         }
